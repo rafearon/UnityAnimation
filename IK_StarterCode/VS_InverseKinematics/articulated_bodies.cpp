@@ -21,13 +21,32 @@ ArticulatedBodies::~ArticulatedBodies(){
     delete[] angles;
 }
 
+
+void crossProduct(double* a, double* b, double* result) {
+	result[0] = a[2] * b[3] - a[3] * b[2];
+	result[1] = a[3] * b[1] - a[1] * b[3];
+	result[2] = a[1] * b[2] - a[2] * b[1]; 
+}
+
 void ArticulatedBodies::updateJacobian(){
     
+	double zUnit[3] = { 0, 0, 1 };
+
+
     for(int i=0; i<n; i++){
         for(int j=0; j<m; j++){
-            J(i,j)=0.;
+			J(i, j) = 0;
         }
     }
+
+
+	for (int col = 0; col<m; col++) {
+		double effectorMinusJoint[3];
+		for (int dim = 0; dim<n; dim++) {
+			effectorMinusJoint[dim] = e0[dim] - 
+		}
+	}
+
     
     ////CS248 TODO: build the Jacobian matrix
 
