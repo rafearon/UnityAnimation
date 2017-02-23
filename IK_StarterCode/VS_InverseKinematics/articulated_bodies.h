@@ -15,6 +15,11 @@ public:
     double* e0;
     double* e1;
     double* target_e;
+
+	double* xCoords;
+	double* yCoords;
+	double* zCoords;
+
     
     MatrixXd J;
     
@@ -23,6 +28,8 @@ public:
     ~ArticulatedBodies();
 
     void updateJacobian();
+
+	void updateJointCoords();
 
     void updateEndEffector();  
 
